@@ -26,7 +26,11 @@ current_text = ""
 while True:
     # temporary value of clipboard chash memory
     tmp_text = pyperclip.paste()
-    if tmp_text != current_text:
-        current_text = tmp_text
-        translation(current_text)
+    try:
+        if tmp_text != current_text:
+            current_text = tmp_text
+            translation(current_text)
+    except:
+        # pass or you could use 'continue' for iterated looping
+        pass
     time.sleep(0.1)
